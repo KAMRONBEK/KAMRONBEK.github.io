@@ -1,0 +1,162 @@
+:root {
+  --container-bg-color: #fff;
+  --left-bg-color: rgba(223, 39, 39, 0.8);
+  --left-button-hover-color: rgba(161, 11, 11, 0.3);
+  --right-bg-color: rgba(43, 43, 43, 0.8);
+  --right-button-hover-color: rgba(92, 92, 92, 0.3);
+  --hover-width: 75%;
+  --other-width: 25%;
+  --speed: 500ms;
+}
+
+html, body {
+  padding:0;
+  margin:0;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  width: 100%;
+  height: 1200px;
+  overflow-x: hidden;
+}
+
+/*h1 {
+  font-size: 4rem;
+  color: #fff;
+  position: absolute;
+  left: 50%;
+  top: 1%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}*/
+
+.text p{
+  margin:auto 50%;
+  text-align: center;
+  display: block;
+  position: absolute;
+  padding-top: 1.3rem;
+  text-align: center;
+  color: #fff;
+  font-size: 1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+.text ul{
+	padding-top: 1%;
+	display: block;
+	margin-left:40%;
+	color:white;
+	transform: translateX(-50%);
+}
+.text ul a:link{
+	text-decoration: none;
+	color:white;
+}
+.text ul a:visited{
+	text-decoration: none;
+	color:white;
+}
+.text ul a:link .disable
+{
+	cursor: default;
+	pointer-events: none;
+}
+/*.split.left .text:hover {
+  background-color: var(--left-button-hover-color);
+  border-color: var(--left-button-hover-color);
+}
+
+.split.right .text:hover {
+  background-color: var(--right-button-hover-color);
+  border-color: var(--right-button-hover-color);
+}*/
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: var(--container-bg-color);
+}
+
+.split {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.split.left {
+  left:0;
+  background: url('img/sad.jpg') center center no-repeat;
+  background-size: cover;
+  opacity: 0.6;
+}
+
+.split.left:before {
+  position:absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: var(--left-bg-color);
+}
+
+.split.right {
+  right:0;
+  background: url('img/happy.jpg') center center no-repeat;
+  background-size: cover;
+  opacity:0.6;
+}
+
+.split.right:before {
+  position:absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: var(--right-bg-color);
+}
+
+.split.left, .split.right, .split.right:before, .split.left:before {
+  transition: var(--speed) all ease-in-out;
+}
+
+.hover-left .left {
+  width: var(--hover-width);
+}
+
+.hover-left .right {
+  width: var(--other-width);
+}
+
+.hover-left .right:before {
+  z-index: 2;
+}
+
+
+.hover-right .right {
+  width: var(--hover-width);
+}
+
+.hover-right .left {
+  width: var(--other-width);
+}
+
+.hover-right .left:before {
+  z-index: 2;
+}
+
+@media(max-width: 800px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .button {
+    width: 12rem;
+  }
+}
+
+@media(max-height: 700px) {
+  .button {
+    top: 70%;
+  }
+}
